@@ -8,7 +8,10 @@ class PostController extends Controller
 {
 
     public function index() {
+        
+
         $posts = Post::latest()->get();
+        
         return view('posts.index')->with('posts', $posts);
     }
     
@@ -16,11 +19,19 @@ class PostController extends Controller
         return view('posts.create');
     }
 
+    public function show($id) {
+        $post = Post::findOrFail($id);
+
+        
+        return view('posts.show', ['post' => $post]);
+    }
+
     public function store(Request $request) {
         $post = new Post();
 
         $post->title = $request->input('title');
         $post->content = $request->input('content');
+        // $post->tags = $request->input('tags[]');
         
         if ($request->hasfile('image')) {
             $file = $request->file('image');

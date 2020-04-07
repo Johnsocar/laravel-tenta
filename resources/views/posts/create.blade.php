@@ -22,6 +22,15 @@
     <input type="file" name="image" class="custom-file-input">
     <label class="custom-file-label">Choose file:</label>
     </div>
+    <!-- <div class="form-group">
+        <fieldset>
+        <input type="checkbox" name="tags[]" value="sport">Sport<br />
+        <input type="checkbox" name="tags[]" value="funny">Funny things<br />
+        <input type="checkbox" name="tags[]" value="animals">Animals<br />
+        <input type="checkbox" name="tags[]" value="random">Random things<br />
+
+        </fieldset>
+    </div> -->
 </div>
 
 <br><br>

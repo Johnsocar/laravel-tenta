@@ -19,7 +19,9 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('content');
             $table->mediumText('image')->nullable();
-            // $table->string('tag')->nullable();
+            // $table->foreignId('user_id')->references('id')->on('users');      
+            // $table->json('tags');
+            
         });
     }
 
