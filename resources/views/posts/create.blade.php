@@ -2,11 +2,11 @@
 
 @section('content')
 
-<h1>Create your post</h1>
+<h1 style="text-align: center;">Create your post</h1>
 
 <div class="container">
 <div class="jumbotron">
-<form action="" method="POST" enctype="multipart/form-data">
+<form action="{{ route('addpost') }}" method="POST" enctype="multipart/form-data">
 @csrf
 <div class="form-group">
 <label>Title:</label>
@@ -26,7 +26,7 @@
 
 <br><br>
 
-<button type="submit" name="submit" class="btn btn-primart btn-lg"> Send: </button>
+<button type="submit" name="submit" class="btn btn-primary btn-lg"> Send </button>
 
 </form>
 </div>

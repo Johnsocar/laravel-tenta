@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('content');
             $table->mediumText('image')->nullable();
-            $table->string('tag');
+            // $table->string('tag')->nullable();
         });
     }
 
