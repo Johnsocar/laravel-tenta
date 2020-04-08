@@ -39,9 +39,9 @@ class User extends Authenticatable
 
     public function post() {
         // $phone = User::find($this->id)->phone;
-        return $this->hasOne(Post::class, 'user_id', 'id');
-    }
-    public function posts() {
         return $this->hasMany(Post::class);
+        // return $this->belongsTo('App\Post');
+
     }
+   
 }

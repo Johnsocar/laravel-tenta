@@ -17,12 +17,20 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/create', 'PostController@create')->name('posts.create');
-Route::post('/addpost', 'PostController@store')->name('addpost');
-Route::get('/', 'PostController@index');
+Route::get('/create', 'UserController@create')->name('posts.create');
+Route::post('/addpost', 'UserController@store')->name('addpost');
+Route::get('/', 'UserController@index');
+// Route::get('/userpost/{id}', 'UserController@show');
 
-Route::get('/posts/{id}', 'PostController@show');
+Route::get('/posts/{id}', 'UserController@show')->name('posts.show');
+Route::delete('/posts/{id}', 'UserController@destroy')->name('posts.destroy');
+Route::put('');
+Route::post('/comment/{id}', 'UserController@comment');
 
+Route::get('/animals', 'PageController@animals')->name('animalpage');
+Route::get('/funnythings', 'PageController@funny')->name('funnypage');
+Route::get('/randomthings', 'PageController@random')->name('randompage');
+Route::get('/sport', 'PageController@sport')->name('sportpage');
 
 Auth::routes();
 

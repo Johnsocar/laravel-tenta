@@ -2,13 +2,13 @@
 
 @section('content')
 
-<h1 style="text-align: center;">Create your post</h1>
+<h1 style="text-align: center;">Edit your post</h1>
 
 <div class="container">
 <div class="jumbotron">
-<form action="{{ route('addpost') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('editpost', [$post->id]) }}" method="PUT" enctype="multipart/form-data">
 @csrf
-<!-- <input type="hidden" name="user_id" value="{{Crypt::encrypt($user->id)}}" > -->
+{{ method_field('PUT') }}
 <div class="form-group">
 <label>Title:</label>
 <input type="text" name="title" class="form-control" placeholder="Enter the Title">
@@ -16,7 +16,7 @@
 <div class="form-group">
 <label>Content:</label>
 <!-- <input type="text" cols="40" rows="5" style="height: 60px;" name="content" class="form-control" placeholder="Enter the content"> -->
-<textarea name="content" class="form-control" cols="40" rows="5"></textarea>
+<textarea name="content" id="content" class="form-control" cols="40" rows="5"></textarea>
 </div>
 <label>Image:</label>
 <div class="input-group">
@@ -37,7 +37,7 @@
 
 <br><br>
 
-<button type="submit" name="user_id" class="btn btn-primary btn-lg"> Send </button>
+<button type="submit" name="submit" class="btn btn-primary btn-lg"> Send </button>
 
 </form>
 </div>

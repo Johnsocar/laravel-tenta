@@ -13,7 +13,8 @@
 
   <img src="{{ asset('uploads/post/' . $post->image) }}" class="card-img-top" width="auto;" height="auto;" alt="Image">
   <div class="card-body">
-    <h3 class="card-title"> {{ $post->title }}</h3>
+  <h4><a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a></h4>
+    
     <p class="card-text">{{ $post->content }}</p>
     
   </div>

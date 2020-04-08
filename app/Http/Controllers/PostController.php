@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
+// use App\Post;
 class PostController extends Controller
 {
 
@@ -48,4 +48,25 @@ class PostController extends Controller
 
         return view('posts.create')->with('post',$post);
     }
+    public function destroy($id) {
+
+        $post = Post::findOrFail($id);
+        $post->delete();
+    
+        return redirect('/');
+    
+      }
+
+      public function edit($id) {
+        $post = Post::findOrFail($id);
+
+        return view('posts.edit', ['post' => $post]);
+        
+      }
+
+      public function comment(Request $request, $post_id) {
+          $this->validate($request [
+
+          ]);
+      }
 }

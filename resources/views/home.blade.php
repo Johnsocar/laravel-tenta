@@ -16,7 +16,7 @@
 
                     You are logged in!
                     <div>
-                        <a href="">view posts</a>
+                        <a href="/">view posts</a>
                     </div>
                 </div>
             </div>
