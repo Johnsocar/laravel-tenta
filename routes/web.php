@@ -16,16 +16,16 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
-Route::get('/create', 'UserController@create')->name('posts.create')->middleware('auth');
-Route::post('/addpost', 'UserController@store')->name('addpost');
-Route::get('/', 'UserController@index');
+Route::get('/create', 'PostController@create')->name('posts.create')->middleware('auth');
+Route::post('/addpost', 'PostController@store')->name('addpost');
+Route::get('/index', 'PostController@index')->middleware('auth');
+Route::get('/', 'PostController@welcome');
 // Route::get('/userpost/{id}', 'UserController@show');
 
-Route::get('/posts/{id}', 'UserController@show')->name('posts.show')->middleware('auth');
-Route::delete('/posts/{id}', 'UserController@destroy')->name('posts.destroy')->middleware('auth');
+Route::get('/posts/{id}', 'PostController@show')->name('posts.show')->middleware('auth');
+Route::delete('/posts/{id}', 'PostController@destroy')->name('posts.destroy')->middleware('auth');
 Route::put('');
-Route::post('/comment/{id}', 'UserController@comment');
+Route::post('/comment/{id}', 'PostController@comment');
 
 Route::get('/animals', 'PageController@animals')->name('animalpage');
 Route::get('/funnythings', 'PageController@funny')->name('funnypage');

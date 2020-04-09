@@ -14,11 +14,11 @@
   <div class="card-body">
     <h3 class="card-title"> {{ $post->title }}</h3>
     <p class="card-text">{{ $post->content }}</p>
-    <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
+    <!-- <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
     @csrf
     @method('DELETE')
     <button>Delete</button>
-  </form>
+  </form> -->
 
   </div>
   <form method="POST" action='{{ url("/comment/{$post->id}") }}'></form>

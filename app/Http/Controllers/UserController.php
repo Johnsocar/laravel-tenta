@@ -52,33 +52,7 @@ class UserController extends Controller
     
         public function store(Request $request) {
             
-            // $request->user()->id;  
-            
-            $post = new Post();
-            
-            // $user = App\User::
-            // auth()->user();
-            // Session::get('user_id');
-            // $post->user_id=$request->get('user_id');
-            $post->title = $request->input('title');
-            $post->content = $request->input('content');
-            // $post->user_id = $request->input('user_id');
-            $post->tags = request('tags');
-            
-            if ($request->hasfile('image')) {
-                $file = $request->file('image');
-                $extension = $file->getClientOriginalExtension();
-                $filename = time() . '.' . $extension;
-                $file->move('uploads/post/', $filename);
-                $post->image = $filename;
-            } else {
-                return $request;
-                $post->image = '';
-            }
-    
-            $post->save();
-    
-            return view('posts.create')->with('post',$post);
+           
         }
         public function destroy($id) {
     

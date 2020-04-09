@@ -5,7 +5,7 @@
 <div class="container">
 
 
-@foreach (posts as $post)
+@foreach ($posts as $post)
 
     <div class="jumbotron">
     

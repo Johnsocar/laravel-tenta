@@ -5,7 +5,7 @@
 <div class="container">
 
 
-@foreach ($posts as $post)
+@foreach ($user->posts as $post)
 
     <div class="jumbotron">
     
@@ -18,7 +18,11 @@
   <h4><a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a></h4>
     
     <p class="card-text">{{ $post->content }}</p>
-    
+    <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
+    @csrf
+    @method('DELETE')
+    <button>Delete</button>
+  </form>
   </div>
   
 
