@@ -3,30 +3,40 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
-// {
-//     public function show($id) {
-//         $user = User::findOrFail($id);
 
-//         // $comments = News::find(123)->with('comments');
-        
-//         // // $phone = Phone::find;
-//         // var_dump($user->post->title);
-//         return view('posts.usershow', [
-//             'user' => $user,
-//             'post' => $user->post,
-//         ]);
-//     }
     {
+
+
+        public function shows($id) {
+            $user = User::findOrFail($id);
+    
+            // $comments = News::find(123)->with('comments');
+    
+            
+            var_dump($user->post->title);
+            return view('show', [
+                'user' => $user,
+                'post' => $user->post,
+            ]);
+        }
+        public function animals() {
+            $posts = Post::where('tags', 'animals')->get();
+            return view('pages.animals')->with('posts', $posts,);
+            
+        }
 
         public function index() {
             
-    
-            $posts = Post::latest()->get();
             
-            return view('posts.index')->with('posts', $posts);
+            $posts = Post::latest()->get();
+
+            // $users = User::all()->get();
+            
+            return view('posts.index')->with('posts', $posts,);
         }
         
         public function create() {
@@ -35,18 +45,25 @@ class UserController extends Controller
     
         public function show($id) {
             $post = Post::findOrFail($id);
-    
             
-            return view('posts.show', ['post' => $post,]);
+            
+            return view('posts.show', ['post' => $post]);
         }
     
         public function store(Request $request) {
+            
+            // $request->user()->id;  
+            
             $post = new Post();
-    
+            
+            // $user = App\User::
+            // auth()->user();
+            // Session::get('user_id');
+            // $post->user_id=$request->get('user_id');
             $post->title = $request->input('title');
             $post->content = $request->input('content');
-            $post->user_id = $request->input('user_id');
-            // $post->tags = $request->input('tags[]');
+            // $post->user_id = $request->input('user_id');
+            $post->tags = request('tags');
             
             if ($request->hasfile('image')) {
                 $file = $request->file('image');

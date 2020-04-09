@@ -8,9 +8,9 @@ class Post extends Model
 {
     protected $table = 'posts';
     protected $fillable = ['title','content','image', 'user_id'];
-    // protected $casts = [
-    //     'tags' => 'array',
-    // ];
+    protected $casts = [
+        'tags' => 'array',
+    ];
 
     public function user(){
         return $this->belongsTo(User::class);

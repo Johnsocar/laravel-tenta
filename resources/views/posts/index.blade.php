@@ -3,6 +3,8 @@
 @section('content')
 
 <div class="container">
+
+
 @foreach ($posts as $post)
 
     <div class="jumbotron">

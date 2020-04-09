@@ -8,7 +8,7 @@
 <div class="jumbotron">
 <form action="{{ route('addpost') }}" method="POST" enctype="multipart/form-data">
 @csrf
-<!-- <input type="hidden" name="user_id" value="{{Crypt::encrypt($user->id)}}" > -->
+
 <div class="form-group">
 <label>Title:</label>
 <input type="text" name="title" class="form-control" placeholder="Enter the Title">
@@ -24,7 +24,7 @@
     <input type="file" name="image" class="custom-file-input">
     <label class="custom-file-label">Choose file:</label>
     </div>
-    <!-- <div class="form-group">
+        <div class="form-group">
         <fieldset>
         <input type="checkbox" name="tags[]" value="sport">Sport<br />
         <input type="checkbox" name="tags[]" value="funny">Funny things<br />
@@ -32,7 +32,7 @@
         <input type="checkbox" name="tags[]" value="random">Random things<br />
 
         </fieldset>
-    </div> -->
+    </div> 
 </div>
 
 <br><br>

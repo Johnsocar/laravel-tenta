@@ -19,10 +19,10 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('content');
             $table->mediumText('image')->nullable();
-            $table->integer('user_id')->unsigned();
+            // $table->increments('user_id');
             // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             // $table->foreignId('user_id')->references('id')->on('users');      
-            // $table->json('tags');
+            $table->json('tags');
             
         });
     }
